@@ -1,3 +1,43 @@
+@import "./color.scss";
+
+* {
+  font-family: "Noto Sans", serif;
+  font-weight: 400;
+}
+
 #map {
-  height: 100%;
+  height: 739px;
+}
+
+.header .row {
+  height: 88px;
+}
+
+h1.title {
+  font-size: 1rem;
+}
+
+h2.small-title {
+  font-size: 0.75rem;
+}
+
+.search-result {
+  font-size: 1rem;
+}
+
+.count-result {
+  font-size: 0.75rem;
+}
+
+.form-select {
+  display: inline;
+  width: auto;
+}
+
+.box {
+  height: 1.75rem;
+  width: 1.75rem;
+  color: $main_color2 !important;
+  border-color: $main_color2 !important;
+  border-width: 2px !important;
 }

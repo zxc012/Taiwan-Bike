@@ -5,6 +5,7 @@ const Dotenv = require('dotenv-webpack');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const devMode = process.env.NODE_ENV !== 'production'
 
+
 module.exports = {
     entry: './src/index.ts',
     output: {
@@ -47,6 +48,10 @@ module.exports = {
                 generator: {
                     filename: 'fonts/[hash][ext][query]'
                 }
+            },
+            {
+                test: /\.tsx?$/,
+                loader: "ts-loader"
             }
         ]
     },
@@ -58,6 +63,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
+        new Dotenv(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
@@ -73,6 +79,5 @@ module.exports = {
         //         ],
         //     }
         // }),
-        new Dotenv(),
     ]
 }
