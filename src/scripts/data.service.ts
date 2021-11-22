@@ -1,18 +1,19 @@
 import jsSHA from "jssha";
 import { apiRouteInfo, routeInfo } from "./models";
+import * as env from "./env.variables.js";
 
 export class DataService {
   /** Api 驗證 header */
   private static getAuthorizationHeader() {
-    let AppID = "9649f6d1d1914fa59025a4ccf492a0a0";
-    let AppKey = "I5P7DcPO81T5KJXG6lGrWeWtAIo";
+    const AppID = env.AppId;
+    const AppKey = env.AppKey;
 
-    let UTCString = new Date().toUTCString();
-    let ShaObj = new jsSHA("SHA-1", "TEXT");
+    const UTCString = new Date().toUTCString();
+    const ShaObj = new jsSHA("SHA-1", "TEXT");
     ShaObj.setHMACKey(AppKey, "TEXT");
     ShaObj.update("x-date: " + UTCString);
-    let HMAC = ShaObj.getHMAC("B64");
-    let Authorization =
+    const HMAC = ShaObj.getHMAC("B64");
+    const Authorization =
       'hmac username="' +
       AppID +
       '", algorithm="hmac-sha1", headers="x-date", signature="' +
